@@ -1,0 +1,1 @@
+{"name":"Local: sizeconnected","url":"e:\\CP\\LearningConcepts\\DSU\\sizeconnected.cpp","tests":[{"id":1654100306001,"input":"5 4\n1 2\n3 4\n4 5\n1 3","output":"1 1 1 2\n1 2 2\n2 3\n5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\CP\\LearningConcepts\\DSU\\sizeconnected.cpp","group":"local","local":true}
