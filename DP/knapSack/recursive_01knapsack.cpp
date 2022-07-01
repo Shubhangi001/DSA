@@ -46,3 +46,17 @@ int main()
     }
 	return 0;
 } 
+// Input:
+// N = 3
+// W = 4
+// values[] = {1,2,3}
+// weight[] = {4,5,1}
+// Output: 3
+// Example 2:
+
+// Input:
+// N = 3
+// W = 3
+// values[] = {1,2,3}
+// weight[] = {4,5,6}
+// Output: 0
