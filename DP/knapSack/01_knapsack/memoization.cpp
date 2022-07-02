@@ -2,21 +2,23 @@
 using namespace std;
 class Solution
 {
-    public:
+     public:
     //Function to return max value that can be put in knapsack of capacity W.
     int knapSack(int W, int wt[], int val[], int n) 
     { 
+        static vector<vector<int>> t(n+1,vector<int>(W+1,-1));
         if(W==0||n==0)  //minimum input condition, either max weight is 0 or array has no weights
             return 0;
             //choice diagram
-        if(wt[n]<=W)
-            return max(val[n]+knapSack(W-wt[n],wt,val,n-1),knapSack(W,wt,val,n-1)); //max between taking that weight and not taking
+        if(t[n][W]!=-1)
+            return t[n][W];
+        else if(wt[n-1]<=W)
+            return t[n][W]=max(val[n-1]+knapSack(W-wt[n-1],wt,val,n-1),knapSack(W,wt,val,n-1)); //max between taking that weight and not taking
         else
-            return knapSack(W,wt,val,n-1); //if it's greater than max weight, can't take
+            return t[n][W]=knapSack(W,wt,val,n-1); //if it's greater than max weight, can't take
         
     }
-};
-
+};      
 
 int main()
  {
@@ -46,17 +48,3 @@ int main()
     }
 	return 0;
 } 
-// Input:
-// N = 3
-// W = 4
-// values[] = {1,2,3}
-// weight[] = {4,5,1}
-// Output: 3
-// Example 2:
-
-// Input:
-// N = 3
-// W = 3
-// values[] = {1,2,3}
-// weight[] = {4,5,6}
-// Output: 0
