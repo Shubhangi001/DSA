@@ -1,3 +1,5 @@
+// https://www.codingninjas.com/codestudio/problems/partitions-with-given-difference_3751628
+
 #include<bits/stdc++.h>
 using namespace std;
 int countPartitions(int n, int d, vector<int> &arr) {   //method 1
