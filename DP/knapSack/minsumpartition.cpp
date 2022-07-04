@@ -25,7 +25,7 @@ class Solution{
             }
         }
         int start=0,mn=sum;
-        for(int i=1;i<sum+1;i++){
+        for(int i=0;i<sum/2+1;i++){
             if(dp[n][i]==1){
                 int x=sum-i;
                 mn=min(mn,abs(x-i));
