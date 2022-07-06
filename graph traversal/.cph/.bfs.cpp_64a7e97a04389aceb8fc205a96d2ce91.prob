@@ -1,0 +1,1 @@
+{"name":"Local: bfs","url":"e:\\CP\\DSA\\graph traversal\\bfs.cpp","tests":[{"id":1657135546841,"input":"6 7\n1 2\n1 5\n1 3\n2 5\n2 4\n6 3\n6 4","output":"0 1 1 2 1 2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\CP\\DSA\\graph traversal\\bfs.cpp","group":"local","local":true}

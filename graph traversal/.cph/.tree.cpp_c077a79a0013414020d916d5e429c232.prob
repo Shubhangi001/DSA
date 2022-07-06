@@ -1,0 +1,1 @@
+{"name":"Local: tree","url":"e:\\CP\\DSA\\graph traversal\\tree.cpp","tests":[{"id":1657134453846,"input":"6\n1 2\n1 3 \n3 4 \n3 5\n4 6","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\CP\\DSA\\graph traversal\\tree.cpp","group":"local","local":true}

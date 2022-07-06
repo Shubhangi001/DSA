@@ -23,23 +23,27 @@ T sum(T a, Args... args) { return a + sum(args...); }
 const int mx=2e5+5;
 vi adj[mx];
 vi vis(mx);   
+vi dis(mx);
+
 void bfs(int n){
+    dis[n]=0;
     queue<int> q;
     q.push(n);
     vis[n]=1;
     while(!q.empty()){
         int top=q.front();
         q.pop();
-        cout<<top<<" ";
         for(auto i:adj[top]){
             if(!vis[i])
             {
+                dis[i]=dis[top]+1;
                 q.push(i);
                 vis[i]=1;
                 
             }
         }
     }
+    
 }
 int main(){
     ll n,m;
@@ -54,5 +58,18 @@ int main(){
         adj[y].pb(x);
     }
     vis.assign(n+1,0);
+    dis.assign(n+1,0);
     bfs(1);
+    rep(i,1,n+1){
+        cout<<dis[i]<<" ";
+    }
 }
+// 6 7
+// 1 2
+// 1 5
+// 1 3
+// 2 5
+// 2 4
+// 6 3
+// 6 4
+// 0 1 1 2 1 2

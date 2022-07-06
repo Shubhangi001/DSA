@@ -21,38 +21,35 @@ T sum(T a, Args... args) { return a + sum(args...); }
 #define casePrint(x,y) cout<<"Case #"<<x<<": "<<y;
 #define all(c) c.begin(),c.end()
 const int mx=2e5+5;
-vi adj[mx];
-vi vis(mx);   
-void bfs(int n){
-    queue<int> q;
-    q.push(n);
-    vis[n]=1;
-    while(!q.empty()){
-        int top=q.front();
-        q.pop();
-        cout<<top<<" ";
-        for(auto i:adj[top]){
-            if(!vis[i])
-            {
-                q.push(i);
-                vis[i]=1;
-                
-            }
+vi adj[mx];                                                 
+int dfs(ll n,ll p){                                       
+    int a=1;
+    for(auto i:adj[n]){
+        if(i!=p){
+            int s=dfs(i,n);
+            a+=s;
         }
     }
+    cout<<n<<" "<<a<<"\n";
+    return a;
 }
-int main(){
-    ll n,m;
-    cin>>n>>m;
-    rep(i,0,n+1){
-        adj[i].clear();
-    }
-    rep(i,0,m){
+int main()
+{
+    ll n;
+    cin>>n;
+    rep(i,0,n-1){
         ll x,y;
         cin>>x>>y;
         adj[x].pb(y);
         adj[y].pb(x);
     }
-    vis.assign(n+1,0);
-    bfs(1);
+    int ans=dfs(1,0);
+   
+//     6
+// 1 2
+// 1 3 
+// 3 4 
+// 3 5
+// 4 6
+    
 }
