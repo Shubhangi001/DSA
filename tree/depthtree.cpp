@@ -20,8 +20,43 @@ T sum(T a, Args... args) { return a + sum(args...); }
 #define ss second
 #define casePrint(x,y) cout<<"Case #"<<x<<": "<<y;
 #define all(c) c.begin(),c.end()
-
-
-int main(){
-
+const int mx=2e5+5;
+vi adj[mx];   
+/**
+ * @brief 
+ * depth of node is the number of edges from node to root
+ * @param n node
+ * @param p parent
+ * @param depth 
+ */
+void dfs(ll n,ll p,int depth){
+    for(auto i:adj[n]){
+        if(i!=p){
+            dfs(i,n,depth+1);    //depth of children will be depth of parent+1
+        }
+    }
+    cout<<n<<" "<<depth<<"\n";
+}
+int main()
+{
+    ll n;
+    cin>>n;
+     rep(i,0,n+1){
+        adj[i].clear();
+     }
+    rep(i,0,n-1){
+        ll x,y;
+        cin>>x>>y;
+        adj[x].pb(y);
+        adj[y].pb(x);
+    }
+    dfs(1,0,0);  //depth of root is 0
+   
+//     6
+// 1 2
+// 1 3 
+// 3 4 
+// 3 5
+// 4 6
+    
 }

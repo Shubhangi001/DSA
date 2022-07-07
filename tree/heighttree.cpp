@@ -21,32 +21,40 @@ T sum(T a, Args... args) { return a + sum(args...); }
 #define casePrint(x,y) cout<<"Case #"<<x<<": "<<y;
 #define all(c) c.begin(),c.end()
 const int mx=2e5+5;
-vi adj[mx];                                                                                        
-void dfs(ll n,ll p,int height){
+vi adj[mx]; 
+vi size(mx);
+/**
+ * @brief 
+ * height of node is the number of edges on longest path from node to a leaf
+ * @param n node
+ * @param p parent
+ * @return int height
+ */
+int dfs(int n,int p){
+    int height=0; //if it has no children, then height is 0
     for(auto i:adj[n]){
         if(i!=p){
-            dfs(i,n,height+1);
+            height=max(height,dfs(i,n));   //height is max of height of its subtree/children
         }
     }
     cout<<n<<" "<<height<<"\n";
-}
+    return height+1;
+} 
 int main()
 {
-    ll n;
-    cin>>n;
+    int n;
+    cin>>n; //nodes
+    rep(i,1,n+1){
+        adj[i].clear();
+
+    }
+    size.assign(n+1,1);
     rep(i,0,n-1){
-        ll x,y;
+        int x,y;
         cin>>x>>y;
         adj[x].pb(y);
         adj[y].pb(x);
     }
-    dfs(1,0,0);
-   
-//     6
-// 1 2
-// 1 3 
-// 3 4 
-// 3 5
-// 4 6
-    
+    dfs(1,0);
+    return 0;
 }

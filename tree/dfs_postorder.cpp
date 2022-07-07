@@ -21,17 +21,14 @@ T sum(T a, Args... args) { return a + sum(args...); }
 #define casePrint(x,y) cout<<"Case #"<<x<<": "<<y;
 #define all(c) c.begin(),c.end()
 const int mx=2e5+5;
-vi adj[mx];                                                 
-int dfs(ll n,ll p){                                       
-    int a=1;
-    for(auto i:adj[n]){
-        if(i!=p){
-            int s=dfs(i,n);
-            a+=s;
+vi adj[mx];                  //adjacency matrix                                                                      
+void dfs(ll n,ll p){
+    for(auto i:adj[n]){               //calling children
+        if(i!=p){                     //since p is parent
+            dfs(i,n);        
         }
     }
-    cout<<n<<" "<<a<<"\n";
-    return a;
+    cout<<n<<"\n"; //for pre order, print this before for loop
 }
 int main()
 {
@@ -40,10 +37,10 @@ int main()
     rep(i,0,n-1){
         ll x,y;
         cin>>x>>y;
-        adj[x].pb(y);
-        adj[y].pb(x);
+        adj[x].pb(y);   //x is connected to y
+        adj[y].pb(x);   //y is connected to x
     }
-    int ans=dfs(1,0);
+    dfs(1,0);
    
 //     6
 // 1 2

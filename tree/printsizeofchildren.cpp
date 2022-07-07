@@ -21,29 +21,36 @@ T sum(T a, Args... args) { return a + sum(args...); }
 #define casePrint(x,y) cout<<"Case #"<<x<<": "<<y;
 #define all(c) c.begin(),c.end()
 const int mx=2e5+5;
-vi adj[mx];                                                                                        
-void dfs(ll n,ll p,int height){
+vi adj[mx];           
+/**
+ * @brief 
+ * size of the tree means the number of nodes in it 
+ * @param n node
+ * @param p parent
+ * @return int size
+ */
+int dfs(ll n,ll p){                                       
+    int size=1;              //node itself means size 1
     for(auto i:adj[n]){
         if(i!=p){
-            dfs(i,n,height+1);
+            int s=dfs(i,n);  //size returned by its children
+            size+=s;           
         }
     }
-    cout<<n<<" "<<height<<"\n";
+    cout<<n<<" "<<size<<"\n";
+    return size;
 }
 int main()
 {
     ll n;
     cin>>n;
-     rep(i,0,n+1){
-        adj[i].clear();
-     }
     rep(i,0,n-1){
         ll x,y;
         cin>>x>>y;
         adj[x].pb(y);
         adj[y].pb(x);
     }
-    dfs(1,0,0);
+    int ans=dfs(1,0);
    
 //     6
 // 1 2
