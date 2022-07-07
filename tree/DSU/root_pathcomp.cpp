@@ -61,7 +61,6 @@ int main(){
     union_(parent,1,2);
     union_(parent,3,4);
     union_(parent,4,5);
-    // union_(v,1,3);
     cout<<find(parent,1,5);
 
 }
