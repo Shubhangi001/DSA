@@ -18,17 +18,17 @@ public:
         return dp[n][w]; 
      }
     
-    int knapSack(int n, int w, int val[], int wt[])
+     int knapSack(int n, int w, int val[], int wt[])
     {
         vector<vector<int>> dp(n+1,vector<int>(w+1,-1));
         for(int i=0;i<=w;i++)
-            dp[0][i]=(i/wt[0])*val[0];
+            dp[0][i]=0;
+        for(int i=0;i<=n;i++)
+            dp[i][0]=0;
         return ks(n, w, val, wt,dp);
         
     }
 };
-
-// { Driver Code Starts.
 
 int main(){
     int t;
