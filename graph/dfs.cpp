@@ -23,6 +23,15 @@ T sum(T a, Args... args) { return a + sum(args...); }
 const int mx=2e5+5;
 vi adj[mx]; 
 vi vis(mx);
+/**
+ * @brief  * DFS revolves around searching children of a nodes completely then backtracking back to
+ * the parent node again to explore further non-visited children.
+ * 
+ * To do this, simply start the dfs from a source marking it as visited inside the dfs
+ * function. Now loop over all the children of the node and do a dfs if not visited.
+ * 
+ * @param n 
+ */
 void dfs(int n){
     cout<<n<<" ";
     vis[n]=1;

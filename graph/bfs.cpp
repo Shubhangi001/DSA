@@ -26,17 +26,19 @@ vi vis(mx);
 /**
  * @brief breadth wise traversal
  * 
- * @param n 
+ * BFS is basically exploring the graph breadth by breadth. Simply put, it is like a circle growing in
+ * radius or water spreading from a point source.
+ * @param src source
  */
-void bfs(int n){
+void bfs(int src){
     queue<int> q;          
-    q.push(n);
-    vis[n]=1;
+    q.push(src);
+    vis[src]=1;
     while(!q.empty()){
         int top=q.front();
         q.pop();
         cout<<top<<" ";        
-        for(auto i:adj[top]){
+        for(auto i:adj[top]){  //iterating over all connected nodes
             if(!vis[i])
             {
                 q.push(i);
