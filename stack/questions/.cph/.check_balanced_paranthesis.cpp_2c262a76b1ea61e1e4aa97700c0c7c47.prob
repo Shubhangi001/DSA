@@ -1,0 +1,1 @@
+{"name":"Local: check_balanced_paranthesis","url":"e:\\CP\\DSA\\stack\\questions\\check_balanced_paranthesis.cpp","tests":[{"id":1657713049510,"input":"1\n{2+3}((2+4))(","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\CP\\DSA\\stack\\questions\\check_balanced_paranthesis.cpp","group":"local","local":true}
