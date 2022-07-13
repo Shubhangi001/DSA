@@ -22,6 +22,13 @@
 // #define all(c) c.begin(),c.end()
 // #define int ll
 //  vi adj[mx];
+
+/**
+ * @brief memory management, stacks, memory mgt, heaps implementation, 
+ * 
+ */
+
+
 // int32_t main()
 //  {
 //      ll n,m;
