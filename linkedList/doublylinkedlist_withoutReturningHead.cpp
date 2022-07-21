@@ -20,38 +20,51 @@ T sum(T a, Args... args) { return a + sum(args...); }
 #define ss second
 #define casePrint(x,y) cout<<"Case #"<<x<<": "<<y;
 #define all(c) c.begin(),c.end()
-
-
-
-/**
- * @brief time complexity - O(n)
- */
+#define int ll
+const int mx=2e5+5;
 class node{
     public:
     int data;
-    node* left;
-    node* right;
+    node* next;
+    node* prev;
 };
+//playing with pointers
+void append(node **addr,int data){
+    node* newnode=new node();
+    newnode->data=data;
+    newnode->prev=(*addr);
+    (*addr)->next=newnode;
+    (*addr)=newnode;
 
-void levelorder(node * root){
-    if(root==NULL) return;
-    queue<node*> Q;
-    Q.push(root);
-    while(!Q.empty()){
-        node* current=Q.front();
-        cout<<current->data<<" ";
-        if(current->left){
-            Q.push(current->left);
-        }
-        if(current->right){
-            Q.push(current->right);
-        }
-        Q.pop();
+}
+void display(node *temp){
+    if(temp==NULL){
+        cout<<"Empty";
     }
+    else{
+        while(temp!=NULL){
+            cout<<temp->data<<" ";
+            temp=temp->next;
+        }
+    }
+}
+int32_t main()
+{
+    node *head=new node();
+    node* headcopy=head;
+    head->data=5;
+    head->next=NULL;
+    head->prev=NULL;
+    append(&head,5);
+    append(&head,6);
+    append(&head,7);
+    append(&head,8);
+    append(&head,9);
+    append(&head,10);
+    display(headcopy);
+
+
+
 
 
 }
-int main(){
-
-}
-

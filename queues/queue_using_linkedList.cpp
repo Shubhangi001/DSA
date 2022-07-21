@@ -20,38 +20,30 @@ T sum(T a, Args... args) { return a + sum(args...); }
 #define ss second
 #define casePrint(x,y) cout<<"Case #"<<x<<": "<<y;
 #define all(c) c.begin(),c.end()
-
-
-
-/**
- * @brief time complexity - O(n)
- */
-class node{
-    public:
+#define int ll
+const int mx=2e5+5;
+class node
+{
     int data;
-    node* left;
-    node* right;
-};
-
-void levelorder(node * root){
-    if(root==NULL) return;
-    queue<node*> Q;
-    Q.push(root);
-    while(!Q.empty()){
-        node* current=Q.front();
-        cout<<current->data<<" ";
-        if(current->left){
-            Q.push(current->left);
+    node * link;
+   
+};      
+class queue{
+    node* front=NULL;
+    node* rear=NULL;
+    bool isEmpty(){
+        if(front==rear==NULL){
+            return 1;
         }
-        if(current->right){
-            Q.push(current->right);
-        }
-        Q.pop();
+        else
+            return 0;
     }
+    
 
 
+};
+int32_t main()
+ {
+    
+    return 0;
 }
-int main(){
-
-}
-
