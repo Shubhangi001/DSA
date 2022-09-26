@@ -56,7 +56,7 @@ int main(){
     cin.tie(0);
     int n;
     cin>>n;
-    vi parent(n);
+    vi parent(n+1);
     initialise(parent,n);
     union_(parent,1,2);
     union_(parent,3,4);
