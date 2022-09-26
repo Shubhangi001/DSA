@@ -39,8 +39,8 @@ int root(vi &parent,int v) {
 }
 
 void union_(vi &parent,int x,int y){
-    int a=root(parent,parent[x]);
-    int b=root(parent,parent[y]);
+    int a=root(parent,x);
+    int b=root(parent,y);
     parent[b]=a;
 }
 bool find(vi &v,int x,int y){   //if root is same, then belongs to same subset
