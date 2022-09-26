@@ -44,7 +44,7 @@ void union_(vi &parent,int x,int y){
     parent[b]=a;
 }
 bool find(vi &v,int x,int y){   //if root is same, then belongs to same subset
-    if(v[x]==v[y]){
+    if(root(x)==root(y)){
         return 1;
     }
     return 0;
