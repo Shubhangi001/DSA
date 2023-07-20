@@ -39,12 +39,12 @@ int root(vi &parent,int v) {
 }
 
 void union_(vi &parent,int x,int y){
-    int a=root(parent,parent[x]);
-    int b=root(parent,parent[y]);
+    int a=root(parent,x);
+    int b=root(parent,y);
     parent[b]=a;
 }
 bool find(vi &v,int x,int y){   //if root is same, then belongs to same subset
-    if(v[x]==v[y]){
+    if(root(x)==root(y)){
         return 1;
     }
     return 0;
@@ -55,8 +55,13 @@ int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     int n;
+<<<<<<< HEAD
     cin>>n;  //number of edges 
     vi parent(n);
+=======
+    cin>>n;
+    vi parent(n+1);
+>>>>>>> 32bb584b584a6a9d3e9c452f5121ac1fb4c9c348
     initialise(parent,n);
     union_(parent,1,2);
     union_(parent,3,4);
