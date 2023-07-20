@@ -25,7 +25,9 @@ T sum(T a, Args... args) { return a + sum(args...); }
 
 /**
  * @brief time complexity - O(n)
- */
+ *         space - O(1)- best, O(n)- worst/avg
+ *              
+ **/
 class node{
     public:
     int data;

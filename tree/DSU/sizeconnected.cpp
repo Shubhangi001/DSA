@@ -71,7 +71,7 @@ void printsize(vi &v,vi &s,int n){
         cout<<i<<" ";
     }
     cout<<"\n";
-}
+} 
 
 int main() {
 	int n,m;
@@ -82,9 +82,9 @@ int main() {
 	for(int i=0;i<m;i++){
 		int x,y;
 		cin>>x>>y;
-		union_(parent,s,x,y);
-        printsize(parent,s,n);
+        union_(parent,s,x,y);
 
 	}
+    printsize(parent,s,n);
 
 }

@@ -55,7 +55,7 @@ int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     int n;
-    cin>>n;
+    cin>>n;  //number of edges 
     vi parent(n);
     initialise(parent,n);
     union_(parent,1,2);

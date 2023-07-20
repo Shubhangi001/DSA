@@ -22,18 +22,6 @@ T sum(T a, Args... args) { return a + sum(args...); }
 #define all(c) c.begin(),c.end()
 #define int ll
 const int mx=2e5+5;
-/**
- * @brief bst- binary search tree, 3 operations search, insert, remove all takes O(logn) time
- *  where as in array if we do binary search, search takes O(logn) but insert and remove takes O(n)
- * 
- * BST is a binary tree in which for each node, value of all nodes in the left subtree is lesser or equal and value of all
- * nodes in right subtree is greater 
- * 
- * We can implement bst (a) using dynamically created nodes (which will be created in heaps)
- *                      (b) using arrays (where left child will have index 2i+1 and right child 2i+2 for any node)
- * 
- *  
- */
 struct node{
     node * left;
     node * right;
@@ -70,23 +58,48 @@ bool search(node* root, int val){
     else
         return search(root->right,val);
 }
+void preorder(node* root){
+    if(root == NULL)    return;
+    cout<<root->data<<" ";
+    preorder(root->left);
+    preorder(root->right);
+}
+void postorder(node* root){
+    if(root == NULL)    return;
+    postorder(root->left);
+    postorder(root->right);
+    cout<<root->data<<" ";
+}
+void levelorder(node * root){
+    if(root==NULL) return;
+    queue<node*> Q;
+    Q.push(root);
+    while(!Q.empty()){
+        node* current=Q.front();
+        cout<<current->data<<" ";
+        if(current->left){
+            Q.push(current->left);
+        }
+        if(current->right){
+            Q.push(current->right);
+        }
+        Q.pop();
+    }
+}
+
 int32_t main()
  {
     node * root=NULL;  //creating an empty bst
-    root=insert(root,15);
-    root=insert(root,20);
-    root=insert(root,25);
-    root=insert(root,12);
-    int num;
-    cout<<"No. to be searched: ";
-    cin>>num;
-    if(search(root,num))
-        cout<<"Found";
-    else
-        cout<<"Not Found";                                          //        15
-                                                                    //    12      20
-                                                                    //               25                                                                        
-
-    
+    while(1){
+        int n;
+        cin>>n;
+        if(n == 0)  break;
+        root = insert(root,n);
+    }
+    preorder(root);
+    cout<<"\n";
+    postorder(root);
+    cout<<"\n";
+    levelorder(root);
     return 0;
 }
