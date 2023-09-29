@@ -32,6 +32,8 @@ vi vis(mx);
  * 
  * Time complexity - O(V+E), V - number of vertex, E - number of Edges
  * 
+ * Applications : No. of connected/disconnected components in graph
+ *                
  * @param n 
  */
 void dfs(int n){
