@@ -30,6 +30,8 @@ vi vis(mx);
  * To do this, simply start the dfs from a source marking it as visited inside the dfs
  * function. Now loop over all the children of the node and do a dfs if not visited.
  * 
+ * Time complexity - O(V+E), V - number of vertex, E - number of Edges
+ * 
  * @param n 
  */
 void dfs(int n){
