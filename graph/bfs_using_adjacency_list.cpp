@@ -28,6 +28,12 @@ vi vis(mx);
  * 
  * BFS is basically exploring the graph breadth by breadth. Simply put, it is like a circle growing in
  * radius or water spreading from a point source.
+ * 
+ * Time complexity : O(V+E)
+ * Applications : Shortest path in an undirected graph
+ *                No. of disconnected/connected components in a graph         
+ *                Ford Fulkerson
+ *                Cycle detection
  * @param src source
  */
 void bfs(int src){
